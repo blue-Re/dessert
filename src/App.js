@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { Switch, Route, withRouter } from 'react-router-dom'
+import Login from './views/Login'
+import Register from './views/Register'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Main from './components/Main'
+class App extends Component {
+  render() {
+    // 获取当前路由路径
+    const { pathname } = this.props.location
+    return (
+      <div>
+        {
+          // 判断是否是登录页面，是就显示登录和注册，否则显示主要内容
+          pathname === "/login" ?
+            <Switch>
+              <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
+            </Switch>
+            :
+            <Main />
+        }
+      </div>
+    )
+  }
 }
-
-export default App;
+export default withRouter(App)
