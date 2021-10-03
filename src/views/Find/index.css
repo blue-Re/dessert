@@ -1,0 +1,223 @@
+/* 精品--------- */
+.best {
+  /* padding-left: 0.32rem;
+  padding-right: 0.44rem; */
+  padding: 0 0.32rem;
+}
+
+.best .content {
+  /* width: 6.44rem;
+  height: 0.84rem; */
+  font-size: 0.28rem;
+  padding: 0.18rem 0;
+}
+
+.best .imgList {
+  display: flex;
+}
+
+.best .imgList img {
+  flex: 1;
+  width: 2.1rem;
+  height: 1.4rem;
+}
+
+.best .infos {
+  padding: 0.2rem 0;
+  font-size: 0.22rem;
+  color: rgba(166, 166, 166, 1);
+}
+
+.best .infos .author {
+  margin-right: 0.7rem;
+}
+
+/* 关注----------- */
+.focus {
+  padding: 0.18rem 0.32rem;
+  position: relative;
+}
+
+.focus .avatar {
+  height: 0.6rem;
+  width: 0.6rem;
+  position: absolute;
+
+}
+
+.focus .title {
+  font-size: 0.3rem;
+  margin-left: 1rem;
+  line-height: 0.6rem;
+}
+
+.focus .content {
+  font-size: 0.28rem;
+  padding: 0.18rem 0;
+}
+
+.focus .imgList {
+  display: flex;
+}
+
+.focus .imgList img {
+  flex: 1;
+  width: 2.1rem;
+  height: 1.4rem;
+}
+
+.focus .infos {
+  padding: 0.2rem 0;
+  font-size: 0.22rem;
+  color: rgba(166, 166, 166, 1);
+}
+
+.focus .infos .author {
+  margin-right: 0.7rem;
+}
+
+/* 晒单----------- */
+.bask {
+  /* display: flex;
+  flex-direction: row; */
+}
+
+.bask .list {
+  display: flex;
+  /* flex-direction: row; */
+
+}
+
+.bask .list .left {
+  flex: 1;
+  /* flex-direction: column; */
+
+}
+
+.bask .list .left .food {
+  width: 3.2rem;
+  height: 3.4rem;
+  /* background-color: yellow; */
+  margin: 0.14rem auto;
+  /* justify-content: center; */
+  /* margin: 0 auto; */
+}
+
+.bask .list .left .food img {
+  width: 100%;
+  height: 2.4rem;
+}
+
+.bask .list .left .food .icon {
+  display: flex;
+}
+
+.bask .list .left .food .icon .iconfont {
+  flex: 1;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  line-height: 0.9rem;
+  font-size: 0.48rem;
+}
+
+.bask .right {
+  flex: 1;
+}
+
+.bask .right .food {
+  width: 3.2rem;
+  height: 3.4rem;
+  /* background-color: green; */
+  /* margin-bottom: 0.28rem; */
+  margin: 0.14rem auto;
+}
+
+.bask .right .food img {
+  width: 100%;
+  height: 2.4rem;
+}
+
+.bask .list .right .food .icon {
+  display: flex;
+}
+
+.bask .list .right .food .icon .iconfont {
+  flex: 1;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  line-height: 0.9rem;
+  font-size: 0.48rem;
+}
+
+/* 上新---------- */
+.new .shop {
+  height: 5.06rem;
+  width: 100%;
+  /* background-color: #bfa; */
+  padding: 0.22rem 0.32rem;
+  margin: 0.4rem 0;
+}
+
+.new .shop .info {
+  height: 1.68rem;
+  /* background-color: pink; */
+  display: flex;
+  position: relative;
+}
+
+.new .shop .info .avatar {
+  width: 1rem;
+  height: 1rem;
+}
+
+.new .shop .info .des .top-des {
+  width: 100%;
+  height: 100%;
+
+  flex: 1;
+}
+
+.new .shop .info .des .top-des .shop-name {
+  font-size: 0.28rem;
+  margin-left: 0.2rem;
+}
+
+.new .shop .info .des .top-des .enter {
+  /* float: right; */
+  position: absolute;
+  right: 0;
+  color: rgba(255, 141, 26, 1);
+  font-size: 0.28rem;
+}
+
+.new .shop .info .des .top-des .content {
+  color: rgba(166, 166, 166, 1);
+  font-size: 0.22rem;
+  margin-top: 0.5rem;
+  margin-left: 0.2rem;
+}
+
+.new .shop .imgList {
+  /* width: 6.9rem; */
+  height: 3.14rem;
+  overflow-x: scroll;
+  /* padding-top: 0.2rem; */
+
+  display: flex;
+}
+
+.new .shop .imgList .cakes {
+  padding: 0.2rem 0.2rem;
+}
+
+.new .shop .imgList .cakes img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.new .shop .imgList .cakes .price-info {
+  padding: 0.1rem 0;
+  font-size: 0.22rem;
+}

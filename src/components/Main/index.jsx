@@ -13,21 +13,20 @@ class index extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'redTab',
+      selectedTab: 'blueTab',
     }
   }
 
   renderContent() {
     return (
-      <div >
+      <div style={{width:'100%'}}>
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/find" component={Find} />
           <Route path="/mine" component={Mine} />
           <Route path="/order" component={Order} />
           <Route path="/nearby" component={NearBy} />
-          
-          <Redirect to="/home" />
+          <Redirect to="/login"/>
         </Switch>
       </div>
     );

@@ -1,17 +1,55 @@
 import React, { Component } from 'react'
-import { Button } from 'antd-mobile'
+import { Button, Toast } from 'antd-mobile'
 import './index.css'
+import { reqLogin, reqRegister } from '../../api'
+import { withRouter } from 'react-router'
 
-export default class index extends Component {
-  state = {
-    
-  }
-  login = () => {
+class index extends Component {
+  // 登陆
+  login = async () => {
     // 获取输入框的值
     let username = this.username.value
     let password = this.password.value
     // 获取到用户名和密码后开始登录
-    console.log(username,password);
+
+    // 先进性判空
+    if (username === "" || password === "") {
+      Toast.fail('用户名或密码不能为空！');
+    } else {
+      // 发送请求，开始登陆
+      const result = await reqLogin(username, password)
+      if (result.code === 0) {
+        Toast.success(result.msg)
+
+        // 将登陆者的信息保存下来
+        localStorage.setItem('username',username)
+
+        // 登录成功，跳转到首页
+        this.props.history.replace('/home')
+      } else {
+        Toast.fail(result.msg)
+      }
+    }
+  }
+  // 注册
+  register = async () => {
+    // 获取输入框的值
+    let username = this.username.value
+    let password = this.password.value
+    // 获取到用户名和密码后开始注册
+
+    // 先进性判空
+    if (username === "" || password === "") {
+      Toast.fail('用户名或密码不能为空！');
+    } else {
+      // 发送请求，开始登陆
+      const result = await reqRegister(username, password)
+      if (result.code === 0) {
+        Toast.success(`${result.msg},请进行登录！`)
+      } else {
+        Toast.fail(result.msg)
+      }
+    }
   }
   render() {
     return (
@@ -22,6 +60,7 @@ export default class index extends Component {
           <div className="btns"
             style={{ display: 'flex', justifyContent: 'center', marginTop: '0.1rem' }}>
             <Button
+              onClick={() => this.register()}
               style={{
                 width: '2rem',
                 marginLeft: '0.6rem',
@@ -41,3 +80,4 @@ export default class index extends Component {
     )
   }
 }
+export default withRouter(index)
