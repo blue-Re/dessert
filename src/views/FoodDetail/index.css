@@ -1,0 +1,184 @@
+.food-detail {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.food-detail .shop-info {
+  height: 4rem;
+  width: 100%;
+  /* background-color: aqua; */
+}
+
+.food-detail .shop-info .header {
+  height: 1rem;
+  /* background-color: orange; */
+  display: flex;
+  padding: 0.32rem;
+}
+
+.food-detail .shop-info .header .avatar {
+  height: 1rem;
+  width: 1rem;
+}
+
+.food-detail .shop-info .header .info {
+  margin-left: 0.2rem;
+}
+
+.food-detail .shop-info .header .info .tag {
+  background-color: rgba(255, 141, 26, 1);
+  height: 0.46rem;
+  width: 0.68rem;
+  font-size: 0.22rem;
+  color: white;
+}
+
+.food-detail .shop-info .header .info .title {
+  margin-left: 0.2rem;
+}
+
+.food-detail .shop-info .content {
+  /* text-align: right; */
+  float: right;
+  color: rgba(102, 102, 102, 1);
+  font-size: 0.22rem;
+  overflow: hidden;
+  white-space: nowrap;
+  /* 文字超出宽度则显示ellipsis省略号 */
+  text-overflow: ellipsis;
+  width: 50%;
+}
+
+.food-detail .shop-info .infoList {
+  margin-top: 0.4rem;
+  margin-left: 1.5rem;
+  color: rgba(166, 166, 166, 1);
+  font-size: 0.22rem;
+}
+
+.food-detail .shop-info .infoList li {
+  margin: 0.2rem 0;
+  color: rgba(56, 56, 56, 1);
+}
+
+/* -------------- */
+.banner-title {
+  padding: 0.3rem 0.3rem;
+}
+
+.banner-title .disItem {
+  height: 1.5rem;
+  /* width: 100%; */
+  /* background-color: pink; */
+  display: flex;
+  position: relative;
+  padding-top: 0.2rem;
+}
+
+.banner-title .disItem img {
+  height: 1rem;
+  width: 1rem;
+}
+
+.banner-title .disItem .shopping {
+  margin-left: 0.2rem;
+}
+
+.banner-title .disItem .shopping .shopping-title {
+  color: rgba(56, 56, 56, 1);
+  font-size: 0.28rem;
+}
+
+.banner-title .disItem .shopping .shopping-content {
+  color: rgba(166, 166, 166, 1);
+  font-size: 0.22rem;
+  margin-top: 0.1rem;
+  width: 3.52rem;
+}
+
+.banner-title .disItem .shopping .saleCount {
+  /* float: right; */
+  color: rgba(166, 166, 166, 1);
+  font-size: 0.22rem;
+  /* width: 100%; */
+  position: absolute;
+  right: 0;
+  top: 45%;
+}
+
+.banner-title .disItem .pull {
+  width: 1rem;
+  height: 0.48rem;
+  color: white;
+  background-color: rgba(255, 141, 26, 1);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.28rem;
+  line-height: 0.48rem;
+  /* float: right; */
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.banner-title .userMark {
+  /* background-color: pink; */
+  display: flex;
+  margin: 0.2rem 0;
+}
+
+.banner-title .userMark img {
+  height: 1rem;
+  width: 1rem;
+}
+
+.banner-title .userMark .remark-content .top {
+  margin: 0 0.2rem;
+}
+
+.banner-title .userMark .remark-content .top .username {
+  font-size: 0.28rem;
+  color: rgba(56, 56, 56, 1);
+}
+
+.banner-title .userMark .remark-content .top .time {
+  color: rgba(166, 166, 166, 1);
+  font-size: 0.22rem;
+  /* text-align: right; */
+  float: right;
+  margin-left: 2.3rem;
+}
+
+.banner-title .userMark .remark-content .word {
+  color: rgba(56, 56, 56, 1);
+  font-size: 0.22rem;
+  margin-left: 0.2rem;
+  padding-top: 0.2rem;
+}
+
+.banner-title .workTime {
+  padding: 0.2rem 0;
+  height: 1.2rem;
+  /* background-color: pink; */
+  margin-top: 0.1rem;
+}
+
+.banner-title .workTime .title {
+  font-size: 0.28rem;
+  color: rgba(56, 56, 56, 1);
+}
+
+.banner-title .workTime .timer {
+  font-size: 0.22rem;
+  color: rgba(56, 56, 56, 1);
+  margin-top: 0.2rem;
+}
+
+.banner-title .infos {
+  /* margin: 0.2rem; */
+  font-size: 0.28rem;
+  color: rgba(56, 56, 56, 1);
+  padding: 0.2rem 0;
+
+}

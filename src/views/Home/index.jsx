@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { NavBar, Icon, InputItem, Carousel, WingBlank, Tabs, Badge } from 'antd-mobile';
 import Head from './child/Head';
 import { reqFoods } from '../../api';
+import { withRouter } from 'react-router';
 
-export default class index extends Component {
+class index extends Component {
   state = {
     slideIndex: 5,
     data: ['1', '2', '3', '4', '5', '6'],
@@ -56,6 +57,7 @@ export default class index extends Component {
           ]}
         >
           <InputItem
+            onClick={()=>this.props.history.push('/search')}
             style={{ width: '3.36rem' }}
             maxLength={15}
             placeholder="巧克力慕斯"
@@ -90,6 +92,7 @@ export default class index extends Component {
             {
               foodData.map((item) => {
                 return <div
+                  onClick={()=>this.props.history.push(`/foodDetail/${item._id}`)}
                   key={item._id}
                   className="foods"
                   style={{
@@ -136,3 +139,4 @@ export default class index extends Component {
     )
   }
 }
+export default withRouter(index)

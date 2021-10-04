@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { TabBar } from 'antd-mobile';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 
 import Home from '../../views/Home'
 import Find from '../../views/Find'
@@ -19,14 +19,14 @@ class index extends Component {
 
   renderContent() {
     return (
-      <div style={{width:'100%'}}>
+      <div style={{ width: '100%' }}>
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/find" component={Find} />
           <Route path="/mine" component={Mine} />
           <Route path="/order" component={Order} />
           <Route path="/nearby" component={NearBy} />
-          <Redirect to="/login"/>
+          
         </Switch>
       </div>
     );

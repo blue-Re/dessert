@@ -1,249 +1,67 @@
 import React, { Component } from 'react'
+import { reqNews } from '../../../../api'
 
 export default class index extends Component {
+  state = {
+    newsData: []
+  }
+
+  getShopData = async () => {
+    const result = await reqNews()
+    if (result.code === 0) {
+      this.setState({
+        newsData: result.data
+      })
+    }
+  }
+
+  componentDidMount() {
+    // this.getShopData()
+  }
+
   render() {
+    const { newsData } = this.state
     return (
       <div>
-        <div className="shop">
-          <div className="info">
-            <img className="avatar" src="../../../../../public/image/food1.jpg" alt="" />
-            <div className="des">
-              <div className="top-des">
-                <span className="shop-name">小敏甜点城堡</span>
-                <span className="enter">进入店铺>&nbsp; </span>
-                <div className="content">
-                  ￥0起送 | 配送费￥5 / 评价4.8分<br /><br />
-                  满45减8（不与美食活动同享）
+        {
+          newsData.map((news) => {
+            return (
+              <div className="shop" key={news._id}>
+                <div className="info">
+                  <img className="avatar" src={news.avatarUrl} alt="" />
+                  <div className="des">
+                    <div className="top-des">
+                      <span className="shop-name">{news.author}</span>
+                      <span className="enter">进入店铺>&nbsp; </span>
+                      <div className="content">
+                        {news.content}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="imgList">
+                  {
+                    news.imgList.map((img, index) => {
+                      return (
+                        <div className="cakes" key={index}>
+                          <img src={img.imgUrl} alt="" />
+                          <div className="price-info">
+                            <span className="text">{img.title}</span><br />
+                            <div className="price">{img.price}</div>
+                          </div>
+                        </div>
+
+                      )
+                    })
+                  }
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="imgList">
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      
-        <div className="shop">
-          <div className="info">
-            <img className="avatar" src="../../../../../public/image/food1.jpg" alt="" />
-            <div className="des">
-              <div className="top-des">
-                <span className="shop-name">小敏甜点城堡</span>
-                <span className="enter">进入店铺>&nbsp; </span>
-                <div className="content">
-                  ￥0起送 | 配送费￥5 / 评价4.8分<br /><br />
-                  满45减8（不与美食活动同享）
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="imgList">
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      
-        <div className="shop">
-          <div className="info">
-            <img className="avatar" src="../../../../../public/image/food1.jpg" alt="" />
-            <div className="des">
-              <div className="top-des">
-                <span className="shop-name">小敏甜点城堡</span>
-                <span className="enter">进入店铺>&nbsp; </span>
-                <div className="content">
-                  ￥0起送 | 配送费￥5 / 评价4.8分<br /><br />
-                  满45减8（不与美食活动同享）
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="imgList">
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      
-        <div className="shop">
-          <div className="info">
-            <img className="avatar" src="../../../../../public/image/food1.jpg" alt="" />
-            <div className="des">
-              <div className="top-des">
-                <span className="shop-name">小敏甜点城堡</span>
-                <span className="enter">进入店铺>&nbsp; </span>
-                <div className="content">
-                  ￥0起送 | 配送费￥5 / 评价4.8分<br /><br />
-                  满45减8（不与美食活动同享）
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="imgList">
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-            <div className="cakes">
-              <img src="/public/image/food1.jpg" alt="" />
-              <div className="price-info">
-                <span className="text">玫瑰可可甜甜圈</span><br />
-                <div className="price">￥12</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      
+
+            )
+          })
+        }
+
+
       </div>
     )
   }

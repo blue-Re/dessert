@@ -18,7 +18,7 @@ export default class index extends Component {
     return (
       <div>
         <Tabs tabs={this.state.tabs}
-          initialPage={3}
+          initialPage={0}
           destroyInactiveTab={true}
           tabBarActiveTextColor="rgba(255, 141, 26, 1)"
           swipeable={false}

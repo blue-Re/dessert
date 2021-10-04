@@ -77,42 +77,43 @@
 }
 
 /* 晒单----------- */
-.bask {
-  /* display: flex;
-  flex-direction: row; */
+.bask{
+  width: 100%;
+  
 }
-
 .bask .list {
-  display: flex;
+  /* display: flex; */
   /* flex-direction: row; */
-
+  width: 100%;
+  /* float: left; */
+  text-align: center;
+  /* height: 100vh; */
 }
 
-.bask .list .left {
-  flex: 1;
-  /* flex-direction: column; */
-
-}
-
-.bask .list .left .food {
+.bask .list  .food {
+  /* flex: auto; */
+  float: left;
   width: 3.2rem;
   height: 3.4rem;
   /* background-color: yellow; */
-  margin: 0.14rem auto;
+  /* margin: 0.14rem auto; */
   /* justify-content: center; */
   /* margin: 0 auto; */
+  /* margin-left: 0.05rem; */
+  /* padding: 0 0.1rem; */
+  margin: 0.2rem 0.27rem;
 }
 
-.bask .list .left .food img {
+.bask .list  .food img {
   width: 100%;
   height: 2.4rem;
 }
 
-.bask .list .left .food .icon {
+.bask .list  .food .icon {
   display: flex;
 }
 
-.bask .list .left .food .icon .iconfont {
+.bask .list  .food .icon .iconfont {
   flex: 1;
   justify-content: space-around;
   text-align: center;
@@ -121,35 +122,6 @@
   font-size: 0.48rem;
 }
 
-.bask .right {
-  flex: 1;
-}
-
-.bask .right .food {
-  width: 3.2rem;
-  height: 3.4rem;
-  /* background-color: green; */
-  /* margin-bottom: 0.28rem; */
-  margin: 0.14rem auto;
-}
-
-.bask .right .food img {
-  width: 100%;
-  height: 2.4rem;
-}
-
-.bask .list .right .food .icon {
-  display: flex;
-}
-
-.bask .list .right .food .icon .iconfont {
-  flex: 1;
-  justify-content: space-around;
-  text-align: center;
-  align-items: center;
-  line-height: 0.9rem;
-  font-size: 0.48rem;
-}
 
 /* 上新---------- */
 .new .shop {
@@ -195,7 +167,7 @@
 .new .shop .info .des .top-des .content {
   color: rgba(166, 166, 166, 1);
   font-size: 0.22rem;
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
   margin-left: 0.2rem;
 }
 
@@ -209,7 +181,8 @@
 }
 
 .new .shop .imgList .cakes {
-  padding: 0.2rem 0.2rem;
+  padding-right: 0.2rem;
+  flex: none;
 }
 
 .new .shop .imgList .cakes img {
@@ -220,4 +193,5 @@
 .new .shop .imgList .cakes .price-info {
   padding: 0.1rem 0;
   font-size: 0.22rem;
+  color: rgba(80, 80, 80, 1);
 }

@@ -1,122 +1,52 @@
 import React, { Component } from 'react'
+import { reqBest } from '../../../../api'
 
 export default class index extends Component {
+  state = {
+    bestList: []
+  }
+
+  // 获取精品数据
+  getBestData = async () => {
+    const result = await reqBest()
+    if (result.code === 0) {
+      this.setState({ bestList: result.data })
+      console.log(result.data);
+    }
+  }
+
+  componentDidMount() {
+    // this.getBestData()
+  }
   render() {
+    // 获取状态
+    const { bestList } = this.state
     return (
       <div>
-        <div className="list">
-          <div className="content">芒果班戟，一款让芒果爱好者狂热的甜点，跟着图解
-            一起来学学怎么做吧！</div>
-          <div className="imgList" >
-            <img src="/public/image/food1.jpg" alt="" />
-            <img src="/public/image/food2.jpg" alt="" />
-            <img src="/public/image/food3.jpg" alt="" />
-          </div>
-          <div className="infos">
-            <span className="author">小包爱生活</span>
-            <i className="iconfont icon-yanjing"></i>
-            <span className="seeCount">206.6万人看过</span>
-          </div>
-        </div>
-        <div className="list">
-          <div className="content">芒果班戟，一款让芒果爱好者狂热的甜点，跟着图解
-            一起来学学怎么做吧！</div>
-          <div className="imgList" >
-            <img src="../../../public/image/food1.jpg" alt="" />
-            <img src="../../../public/image/food2.jpg" alt="" />
-            <img src="../../../public/image/food3.jpg" alt="" />
-          </div>
-          <div className="infos">
-            <span className="author">小包爱生活</span>
-            <i className="iconfont icon-yanjing"></i>
-            <span className="seeCount">206.6万人看过</span>
-          </div>
-        </div>
-        <div className="list">
-          <div className="content">芒果班戟，一款让芒果爱好者狂热的甜点，跟着图解
-            一起来学学怎么做吧！</div>
-          <div className="imgList" >
-            <img src="../../../public/image/food1.jpg" alt="" />
-            <img src="../../../public/image/food2.jpg" alt="" />
-            <img src="../../../public/image/food3.jpg" alt="" />
-          </div>
-          <div className="infos">
-            <span className="author">小包爱生活</span>
-            <i className="iconfont icon-yanjing"></i>
-            <span className="seeCount">206.6万人看过</span>
-          </div>
-        </div>
-        <div className="list">
-          <div className="content">芒果班戟，一款让芒果爱好者狂热的甜点，跟着图解
-            一起来学学怎么做吧！</div>
-          <div className="imgList" >
-            <img src="../../../public/image/food1.jpg" alt="" />
-            <img src="../../../public/image/food2.jpg" alt="" />
-            <img src="../../../public/image/food3.jpg" alt="" />
-          </div>
-          <div className="infos">
-            <span className="author">小包爱生活</span>
-            <i className="iconfont icon-yanjing"></i>
-            <span className="seeCount">206.6万人看过</span>
-          </div>
-        </div>
-        <div className="list">
-          <div className="content">芒果班戟，一款让芒果爱好者狂热的甜点，跟着图解
-            一起来学学怎么做吧！</div>
-          <div className="imgList" >
-            <img src="../../../public/image/food1.jpg" alt="" />
-            <img src="../../../public/image/food2.jpg" alt="" />
-            <img src="../../../public/image/food3.jpg" alt="" />
-          </div>
-          <div className="infos">
-            <span className="author">小包爱生活</span>
-            <i className="iconfont icon-yanjing"></i>
-            <span className="seeCount">206.6万人看过</span>
-          </div>
-        </div>
-        <div className="list">
-          <div className="content">芒果班戟，一款让芒果爱好者狂热的甜点，跟着图解
-            一起来学学怎么做吧！</div>
-          <div className="imgList" >
-            <img src="../../../public/image/food1.jpg" alt="" />
-            <img src="../../../public/image/food2.jpg" alt="" />
-            <img src="../../../public/image/food3.jpg" alt="" />
-          </div>
-          <div className="infos">
-            <span className="author">小包爱生活</span>
-            <i className="iconfont icon-yanjing"></i>
-            <span className="seeCount">206.6万人看过</span>
-          </div>
-        </div>
-        <div className="list">
-          <div className="content">芒果班戟，一款让芒果爱好者狂热的甜点，跟着图解
-            一起来学学怎么做吧！</div>
-          <div className="imgList" >
-            <img src="../../../public/image/food1.jpg" alt="" />
-            <img src="../../../public/image/food2.jpg" alt="" />
-            <img src="../../../public/image/food3.jpg" alt="" />
-          </div>
-          <div className="infos">
-            <span className="author">小包爱生活</span>
-            <i className="iconfont icon-yanjing"></i>
-            <span className="seeCount">206.6万人看过</span>
-          </div>
-        </div>
-        <div className="list">
-          <div className="content">芒果班戟，一款让芒果爱好者狂热的甜点，跟着图解
-            一起来学学怎么做吧！</div>
-          <div className="imgList" >
-            <img src="../../../public/image/food1.jpg" alt="" />
-            <img src="../../../public/image/food2.jpg" alt="" />
-            <img src="../../../public/image/food3.jpg" alt="" />
-          </div>
-          <div className="infos">
-            <span className="author">小包爱生活</span>
-            <i className="iconfont icon-yanjing"></i>
-            <span className="seeCount">206.6万人看过</span>
-          </div>
-        </div>
+        {
+          bestList.map((best) => {
+            return (
+              <div className="list" key={best._id}>
+                <div className="content">{best.content}</div>
+                <div className="imgList" >
+                  {
+                    best.imgList.map((img, index) => {
+                      return (
+                        <img key={index} src={img} alt="" />
+                      )
+                    })
+                  }
+                </div>
+                <div className="infos">
+                  <span className="author">{best.author}</span>
+                  <i className="iconfont icon-yanjing"></i>
+                  <span className="seeCount">{best.seeCount}万人看过</span>
+                </div>
+              </div>
 
+            )
+          })
+        }
       </div>
     )
   }
