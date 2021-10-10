@@ -185,3 +185,9 @@
   padding: 0.2rem 0;
 
 }
+
+/* antd 内部样式 */
+.am-card-header-content img{
+  width: 60px;
+  height: 60px;
+}
