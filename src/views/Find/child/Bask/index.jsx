@@ -15,7 +15,7 @@ export default class index extends Component {
 
 
   componentDidMount() {
-    // this.getBaskData()
+    this.getBaskData()
   }
 
   render() {

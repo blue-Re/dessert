@@ -17,7 +17,7 @@ export default class index extends Component {
   }
 
   componentDidMount() {
-    // this.getFocusData()
+    this.getFocusData()
   }
   render() {
     const { focusData } = this.state

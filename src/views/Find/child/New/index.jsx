@@ -16,7 +16,7 @@ export default class index extends Component {
   }
 
   componentDidMount() {
-    // this.getShopData()
+    this.getShopData()
   }
 
   render() {

@@ -36,6 +36,16 @@ export const reqBasks = () => ajax({ url: '/bask' })
 export const reqNews = () => ajax({ url: '/news' })
 
 // 通过id寻找指定食物信息
-export const reqFoodById = (_id)=>ajax({url:'/food_id',params:{_id}})
+export const reqFoodById = (_id) => ajax({ url: '/food_id', params: { _id } })
 // 通过关键字搜素食物信息
-export const searchFoodByKey = (searchText)=>ajax({url:'/food_key',params:{searchText}})
+export const searchFoodByKey = (searchText) => ajax({ url: '/food_key', params: { searchText } })
+// 通过食物id寻找对应的评论内容
+export const reqFoodRemarkContent = (food_id) => ajax({ url: '/find_remark_content', params: { food_id } })
+// 对指定食物进行评论
+export const foodRemark = (food_id, username, content) => ajax({
+  url: '/food_remark',
+  method: 'POST',
+  data: {
+    food_id, username, content
+  }
+})

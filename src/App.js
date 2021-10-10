@@ -16,6 +16,7 @@ class App extends Component {
           <Switch>
             <Route path="/search" component={Search}/>
             <Route path="/foodDetail/:_id" component={FoodDetail} />
+            <Redirect to="/home" />
           </Switch>
             :
             <Redirect to="/login" />

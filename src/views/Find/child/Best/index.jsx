@@ -16,7 +16,7 @@ export default class index extends Component {
   }
 
   componentDidMount() {
-    // this.getBestData()
+    this.getBestData()
   }
   render() {
     // 获取状态

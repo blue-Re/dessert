@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { NavBar, Icon, Tabs, Badge } from 'antd-mobile';
+import { NavBar, Icon, Tabs, Badge, InputItem, Button, Toast } from 'antd-mobile';
 import { withRouter } from 'react-router';
+import { reqFoodById, reqFoodRemarkContent, foodRemark } from '../../api';
 import './index.css'
-import { reqFoodById } from '../../api';
 
 class index extends Component {
   state = {
@@ -13,20 +13,59 @@ class index extends Component {
     ],
     shopInfo: [],
     disCounts: [],
-    remark: []
+    remark: [],
   }
+  // 获取食物以及其评论信息
   getFoodById = async () => {
+    // 使用Promise.all来发送两个请求，参数是一个数组，里边为对应的请求函数，返回的结果也会以数组的形式按序保存
     let _id = this.props.match.params._id
-    const result = await reqFoodById(_id)
+    const result = await Promise.all([reqFoodById(_id), reqFoodRemarkContent(_id)])
+
     console.log(result);
-    if (result.code === 0) {
+    if (result[0].code === 0 && result[1].code === 0) {
       this.setState({
-        shopInfo: result.data[0],
-        disCounts: result.data[0].disCounts,
-        remark: result.data[0].remark
+        shopInfo: result[0].data[0],
+        disCounts: result[0].data[0].disCounts,
+        remark: result[1].data
       })
     }
   }
+  // 评论
+  remark = async () => {
+    const { remark } = this.state
+    // 拿到评论的内容
+    const content = this.remarkContent.state.value
+    // 获取食物对应的food_id
+    const food_id = this.props.match.params._id
+    // 获取评论者的姓名
+    const username = localStorage.getItem('username')
+    // 构造一个对象，将其推送到state中的remark中
+    let obj = {
+      username,
+      food_id,
+      content,
+      time:Date().substring(10,32)
+    }
+    // 发送请求
+    const result = await foodRemark(food_id, username, content)
+    // console.log('我评论了！',remark);
+    if (result.code === 0) {
+      Toast.success('评论成功!')
+      // 更新state中的评论内容
+      this.setState({
+        remark: [...remark, obj]
+      })
+      // 清空输入框
+      this.remarkContent.state.value = ''
+      // remark.push(obj)
+      // console.log(remark);
+    } else {
+      Toast.fail(result.msg)
+      // 清空输入框
+      this.remarkContent.state.value = ''
+    }
+  }
+
   componentDidMount() {
     this.getFoodById()
   }
@@ -68,7 +107,7 @@ class index extends Component {
           <div className="banner-title">
             <h5 >套餐专享</h5>
             {
-              disCounts.map((dis,index) => {
+              disCounts.map((dis, index) => {
                 return (
                   <div className="disItem" key={index}>
                     <img src={dis.shopUrl} alt="" />
@@ -87,21 +126,23 @@ class index extends Component {
           <div className="banner-title" >
             <h5 >用户评价</h5>
             {
-              remark.map((remarkItem,index) => {
+              remark.map((remarkItem, index) => {
                 return (
                   <div className="userMark" key={index}>
-                    <img src="/public/image/food1.jpg" alt="" />
+                    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180520%2F0473e00bdfd2476fbe0c228a45a1652c.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1635648455&t=74f7323e3d113e1dd95bc3b612e9e734" alt="" />
                     <div className="remark-content">
                       <div className="top">
                         <span className="username">{remarkItem.username}</span>
-                        <span className="time">2019-1-19</span>
+                        <span className="time">{remarkItem.time}</span>
                       </div>
-                      <div className="word">最爱铜锣烧，超甜，酥脆，口味很棒</div>
+                      <div className="word">{remarkItem.content}</div>
                     </div>
                   </div>
                 )
               })
             }
+            <InputItem placeholder="请输入评论内容" ref={c => this.remarkContent = c} />
+            <Button onClick={this.remark}>评论</Button>
           </div>
           <div className="banner-title" >
             <h5 >商家信息</h5>
