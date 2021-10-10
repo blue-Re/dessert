@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import { NavBar, Icon, Tabs, Badge, InputItem, Button, Toast } from 'antd-mobile';
 import { withRouter } from 'react-router';
 import { reqFoodById, reqFoodRemarkContent, foodRemark } from '../../api';
+// 导入connect函数，用来共享redux中的数据
+import { connect } from 'react-redux';
+// 引入操作对象
+import { rush_purchase } from '../../redux/actions';
+
 import './index.css'
 
 class index extends Component {
@@ -66,6 +71,14 @@ class index extends Component {
     }
   }
 
+  // 抢购
+  buy = (item)=>{
+    console.log(item);
+    // 调用redux中的reducer方法
+    this.props.rush_purchase(item)
+    Toast.success('已下单！')
+  }
+
   componentDidMount() {
     this.getFoodById()
   }
@@ -116,7 +129,7 @@ class index extends Component {
                       <div className="shopping-content">{dis.disInfo}</div>
                       <div className="saleCount">{dis.saleCount}</div>
                     </div>
-                    <div className="pull">抢购</div>
+                    <div className="pull" onClick={()=>this.buy(dis)}>抢购</div>
                   </div>
                 )
               })
@@ -158,4 +171,10 @@ class index extends Component {
     )
   }
 }
-export default withRouter(index)
+
+export default connect(
+  state=>({rush_purchase_data:state.rush_purchase_data}),
+  {
+    rush_purchase
+  }
+)(withRouter(index))

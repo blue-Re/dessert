@@ -157,6 +157,7 @@
   font-size: 0.22rem;
   margin-left: 0.2rem;
   padding-top: 0.2rem;
+  float: left;
 }
 
 .banner-title .workTime {
